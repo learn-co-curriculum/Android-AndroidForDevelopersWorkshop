@@ -1,12 +1,18 @@
 package com.flatironschool.madlibsgenerator.services;
 
 import com.flatironschool.madlibsgenerator.Models.MadLib;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
+import retrofit.converter.GsonConverter;
 import retrofit.http.Field;
+import retrofit.http.FormUrlEncoded;
 import retrofit.http.POST;
 
 /**
@@ -14,10 +20,11 @@ import retrofit.http.POST;
  */
 public class MadLibService {
 
-    private static final String API_URL = "http://localhost:8080/";
+    //private static final String API_URL = "http://192.168.56.1:80/";
+    private static final String API_URL = "http://intense-fjord-5112.herokuapp.com:80/";
 
     public interface LibsService {
-        //@FormUrlEncoded
+        @FormUrlEncoded
         @POST("/api/v1/madlibs")
         public void getStoryAsync(
                 @Field("places") List<String> places,
