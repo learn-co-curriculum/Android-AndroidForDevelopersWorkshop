@@ -3,7 +3,7 @@ Android-AndroidForDevelopersWorkshop
 
 ##Intro to Java and Android
 
-[Slide Deck](Intro-to-Java-and-Android.md)
+[Slide Deck](Intro-to-Java-and-Android.pdf)
 
 ##Mad Libs
 
@@ -23,6 +23,6 @@ Android-AndroidForDevelopersWorkshop
 
 ##Resources 
 
-  * [Slide Deck](Intro-to-Java-and-Android.md)
+  * [Slide Deck](Intro-to-Java-and-Android.pdf)
   * [Mad Libs](MadLibsGenerator/)
   * [Node app](Node/)
