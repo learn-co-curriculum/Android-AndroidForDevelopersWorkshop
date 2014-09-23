@@ -3,7 +3,6 @@ package com.flatironschool.madlibsgenerator;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,27 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.flatironschool.madlibsgenerator.Models.MadLib;
-import com.flatironschool.madlibsgenerator.services.AppController;
 import com.flatironschool.madlibsgenerator.services.MadLibService;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit.Callback;
 import retrofit.RetrofitError;
-
 
 public class MadLibActivity extends Activity {
 
@@ -64,11 +50,10 @@ public class MadLibActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final ProgressDialog dialog = new ProgressDialog(MadLibActivity.this);
+                dialog.setMessage("Loading....");
 
-//                final ProgressDialog dialog = new ProgressDialog(getApplicationContext());
-//                dialog.setMessage("Loading....");
-//
-//                dialog.show();
+                dialog.show();
 
                 List<String>places = new ArrayList<String>();
                 places.add(place1.getText().toString());
@@ -96,7 +81,7 @@ public class MadLibActivity extends Activity {
                     @Override
                     public void success(String object, retrofit.client.Response response) {
                         Log.d(getLocalClassName(), response.toString());
-                        //dialog.hide();
+                        dialog.hide();
 
                         Intent intent = new Intent(MadLibActivity.this, MadLibStoryActivity.class);
                         intent.putExtra("story", object);
@@ -107,8 +92,8 @@ public class MadLibActivity extends Activity {
                     @Override
                     public void failure(RetrofitError error) {
                         Log.d(getLocalClassName(), error.getLocalizedMessage());
-                       //
-                       // dialog.hide();
+
+                        dialog.hide();
                     }
                 });
             }

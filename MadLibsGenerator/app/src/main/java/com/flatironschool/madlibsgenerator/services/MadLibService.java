@@ -20,8 +20,7 @@ import retrofit.http.POST;
  */
 public class MadLibService {
 
-    //private static final String API_URL = "http://192.168.56.1:80/";
-    private static final String API_URL = "http://intense-fjord-5112.herokuapp.com:80/";
+    private static final String API_URL = "http://intense-fjord-5112.herokuapp.com/";
 
     public interface LibsService {
         @FormUrlEncoded
