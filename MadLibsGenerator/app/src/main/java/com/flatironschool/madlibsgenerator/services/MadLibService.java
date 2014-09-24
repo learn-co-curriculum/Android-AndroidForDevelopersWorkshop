@@ -21,6 +21,7 @@ import retrofit.http.POST;
 public class MadLibService {
 
     private static final String API_URL = "http://intense-fjord-5112.herokuapp.com/";
+    //private static final String API_URL = "http://192.168.56.1:8080/"; //Local Testing
 
     public interface LibsService {
         @FormUrlEncoded
@@ -28,8 +29,7 @@ public class MadLibService {
         public void getStoryAsync(
                 @Field("places") List<String> places,
                 @Field("people") List<String> people,
-                @Field("verbs") List<String> verbs,
-                @Field("adjectives") List<String> adjectives
+                @Field("verbs") List<String> verbs
                 , Callback<String> callback);
     }
 
@@ -41,7 +41,6 @@ public class MadLibService {
         service.getStoryAsync(madLib.getPlaces(),
                 madLib.getPeople(),
                 madLib.getVerbs(),
-                madLib.getAdjectives(),
                 callback);
     }
 }

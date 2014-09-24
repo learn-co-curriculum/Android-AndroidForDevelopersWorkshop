@@ -8,29 +8,36 @@ module.exports = function(router){
 
 		var story = createStory(places, people, verbs, adjectives);
 
-		res.send(story);  
+		var storyJson = {"story" : JSON.stringify(story)}; 
+		console.log(storyJson);
+ 
+		res.send(JSON.stringify(story));  
 	}); 
 }
 
-function createStory(places, people, verbs, adjectives) {
-	var story = "Today we'll be going on a journey to " + randomString(places) +
-	 ". If you've never been before, " + randomString(people) +
-	 ", it's a " + randomString(adjectives) + " place full of " + 
-		randomString(adjectives) + " people like " + randomString(people) +
-		 ". Learning Android can be a " + randomString(adjectives) +
-		 " experience, but I promise, if " + randomString(people) +
+function createStory(places, people, verbs) {
+	var story = "Today we'll be going on a journey to " + randomString(places).capitalize() +
+	 ". If you've never been before, it's a magical place full of happy people like " + randomString(people).capitalize() +
+		 ". Learning Android can be a challenging experience, but I promise, if " + randomString(people).capitalize() +
 		  " can do it, so can you! " + "So " + randomString(verbs) + 
-		  " " + randomString(adjectives) + " like " + randomString(people) +
-		   " and make sure to " + randomString(verbs) + " " + randomString(adjectives) + "!";  
+		  " hard and make sure to " + randomString(verbs) + " bravely!";  
 
 	return story; 
 }
 
-function randomString(arr){
-	var randomNum = Math.floor(Math.random() * arr.length)
+String.prototype.capitalize = function () {
+	return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
-	var randomString = arr[randomNum]; 
-	arr.splice(randomNum, 1); 
-	
-	return randomString; 
+function randomString(arr){
+	if (typeof arr == 'string' || arr instanceof String) {
+		return arr;
+	}
+	else {
+		var randomNum = Math.floor(Math.random() * arr.length)
+		var randomString = arr[randomNum]; 
+		arr.splice(randomNum, 1); 
+		
+		return randomString;
+	} 
 }

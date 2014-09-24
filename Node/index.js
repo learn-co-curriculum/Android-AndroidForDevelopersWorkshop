@@ -16,8 +16,7 @@ require('./routes')(router);
 
 
 // launch ======================
-var port = 8080;
-app.listen(port); 
-
-console.log('server is running on port: ' + port); 
-
+app.set('port', (process.env.PORT || 5000)); 
+app.listen(app.get('port'), function(){
+  console.log("Node app running on port: "+ app.get('port')); 
+}); 

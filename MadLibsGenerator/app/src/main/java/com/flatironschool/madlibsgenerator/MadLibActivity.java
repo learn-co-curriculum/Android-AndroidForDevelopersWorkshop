@@ -30,23 +30,11 @@ public class MadLibActivity extends Activity {
         final MadLibService service = new MadLibService();
 
         final Button button = (Button) findViewById(R.id.button);
-
         final EditText place1 = (EditText) findViewById(R.id.place1);
-
-        final EditText adjective1 = (EditText) findViewById(R.id.adjective1);
-        final EditText adjective2 = (EditText) findViewById(R.id.adjective2);
-        final EditText adjective3 = (EditText) findViewById(R.id.adjective3);
-        final EditText adjective4 = (EditText) findViewById(R.id.adjective4);
-        final EditText adjective5 = (EditText) findViewById(R.id.adjective5);
-
         final EditText verb1 = (EditText) findViewById(R.id.verb1);
         final EditText verb2 = (EditText) findViewById(R.id.verb2);
-
         final EditText person1 = (EditText) findViewById(R.id.person1);
         final EditText person2 = (EditText) findViewById(R.id.person2);
-        final EditText person3 = (EditText) findViewById(R.id.person3);
-        final EditText person4 = (EditText) findViewById(R.id.person4);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,21 +49,12 @@ public class MadLibActivity extends Activity {
                 List<String>people = new ArrayList<String>();
                 people.add(person1.getText().toString());
                 people.add(person2.getText().toString());
-                people.add(person3.getText().toString());
-                people.add(person4.getText().toString());
 
                 List<String>verbs = new ArrayList<String>();
                 verbs.add(verb1.getText().toString());
                 verbs.add(verb2.getText().toString());
 
-                List<String>adjectives = new ArrayList<String>();
-                adjectives.add(adjective1.getText().toString());
-                adjectives.add(adjective2.getText().toString());
-                adjectives.add(adjective3.getText().toString());
-                adjectives.add(adjective4.getText().toString());
-                adjectives.add(adjective5.getText().toString());
-
-                final MadLib madLib = new MadLib(places, people, verbs, adjectives);
+                final MadLib madLib = new MadLib(places, people, verbs);
 
                 service.loadStory(madLib, new Callback<String>() {
                     @Override
