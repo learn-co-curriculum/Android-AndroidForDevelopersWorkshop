@@ -22,12 +22,14 @@ import retrofit.RetrofitError;
 
 public class MadLibActivity extends Activity {
 
+    private MadLibService mService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mad_lib);
 
-        final MadLibService service = new MadLibService();
+        mService = new MadLibService();
 
         final Button button = (Button) findViewById(R.id.button);
         final EditText place1 = (EditText) findViewById(R.id.place1);
@@ -56,12 +58,11 @@ public class MadLibActivity extends Activity {
 
                 final MadLib madLib = new MadLib(places, people, verbs);
 
-                service.loadStory(madLib, new Callback<String>() {
+                mService.loadStory(madLib, new Callback<String>() {
                     @Override
                     public void success(String object, retrofit.client.Response response) {
                         Log.d(getLocalClassName(), response.toString());
-                        dialog.hide();
-
+                        dialog.dismiss();
                         Intent intent = new Intent(MadLibActivity.this, MadLibStoryActivity.class);
                         intent.putExtra("story", object);
 
@@ -77,6 +78,12 @@ public class MadLibActivity extends Activity {
                 });
             }
         });
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+       mService = null;
     }
 
     @Override

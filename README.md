@@ -15,7 +15,7 @@ Android-AndroidForDevelopersWorkshop
 
 ##To Code along
 
-	1. Clone Repo
+	1. Fork & Clone Repo
 	2. Open Android Studio 
 	3. Select File -> Open 
 	4. Select the MadLibsGenerator Folder 
