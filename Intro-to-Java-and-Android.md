@@ -6,6 +6,7 @@
 
 - Why Google Chose Java and how it fits into the Android SDK 
 - A quick Java crash course
+- Configuring your Android Environment
 - Building an Android MadLibs app
 
 ----
@@ -42,18 +43,6 @@
 
 ----
 
-## Java's Big Idea
-
-----
-
-##Virtual Machine with C style notation 
-
-----
-
-## **W**rite **O**nce **R**un **A**nywhere 
-
-----
-
 ## Five Primary Goals of the Java Language
 
 
@@ -65,7 +54,11 @@
 
 ----
 
-##Concurrent and threaded from the beginning
+## Java's Big Idea
+
+----
+
+##Virtual Machine with C style notation 
 
 ----
 

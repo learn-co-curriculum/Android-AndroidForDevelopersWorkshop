@@ -10,6 +10,5 @@
     <string name="adjective">adjective</string>
     <string name="button_text">Make the Story!</string>
     <string name="title_activity_mad_lib_story">MadLibStoryActivity</string>
-    <string name="al_resourece">Android is awesome</string>
 
 </resources>
