@@ -40,11 +40,6 @@ public class MadLibActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog dialog = new ProgressDialog(MadLibActivity.this);
-                dialog.setMessage("Loading....");
-
-                dialog.show();
-
                 List<String>places = new ArrayList<String>();
                 places.add(place1.getText().toString());
 
@@ -62,7 +57,6 @@ public class MadLibActivity extends Activity {
                     @Override
                     public void success(String object, retrofit.client.Response response) {
                         Log.d(getLocalClassName(), response.toString());
-                        dialog.dismiss();
                         Intent intent = new Intent(MadLibActivity.this, MadLibStoryActivity.class);
                         intent.putExtra("story", object);
 
@@ -72,8 +66,6 @@ public class MadLibActivity extends Activity {
                     @Override
                     public void failure(RetrofitError error) {
                         Log.d(getLocalClassName(), error.getLocalizedMessage());
-
-                        dialog.hide();
                     }
                 });
             }
@@ -84,6 +76,12 @@ public class MadLibActivity extends Activity {
     protected void onPause(){
         super.onPause();
        mService = null;
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
     }
 
     @Override

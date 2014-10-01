@@ -1,5 +1,6 @@
 package com.flatironschool.madlibsgenerator.Models;
 
+
 import java.util.List;
 
 /**
