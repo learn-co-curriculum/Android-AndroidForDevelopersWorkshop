@@ -83,3 +83,4 @@ Retrofit encapsulation of network code
   * [Slide Deck](Intro-to-Java-and-Android.pdf)
   * [Mad Libs](MadLibsGenerator/)
   * [Node app](Node/)
+<a href='https://learn.co/lessons/Android-AndroidForDevelopersWorkshop' data-visibility='hidden'>View this lesson on Learn.co</a>
